@@ -19,6 +19,12 @@
           </script>
         <title>Zainul Abedin's artworks</title>
         <style>
+            #preloader{
+                z-index: 100;
+                background: #000 url(preloader.gif) no-repeat center center;
+                width: 100vw;
+                height: 100vh;
+            }
             .controller{
                 position: fixed;
                 width: 70px;
@@ -59,8 +65,8 @@
         <meta name="keywords" content="Zainul Abedin, VR, VR museum, Shilpacharya, Bangladeshi art">
     </head>
     <body style="user-select: none; -webkit-app-region:drag;">
-        
         <a-scene physics="debug: false">
+            <div id="preloader"></div>
             <div class="controller" id="forward" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)">&uarr;</div>
             <div class="controller" id="left" onmouseenter="mouseEnter(65)" onmouseleave="mouseLeave(65)">&larr;</div>
             <div class="controller" id="backward" onmouseenter="mouseEnter(83)" onmouseleave="mouseLeave(83)">&darr;</div>
