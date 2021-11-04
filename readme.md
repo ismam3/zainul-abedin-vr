@@ -5,7 +5,7 @@ All arts are collected from Internet--
     1. Bengal Foundation
     2. Wikiart
     3. Wikipedia
-    4. BanglapediaAll arts are collected from
+    4. Banglapedia
 
 
 ## Developed and all rights reserved by Ismam Labib. 
