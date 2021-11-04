@@ -1,0 +1,303 @@
+<html>
+    <head>
+        <script src="a-frame_0_8_2.min.js"></script>
+        <script src="aframe-extras.min.js"></script>
+        <script src="aframe-physics-system.min.js"></script>
+        <script>
+            function mouseEnter(key_code){
+                var keyDownEvent = new KeyboardEvent("keydown",{
+                    keyCode:key_code
+                })
+                window.dispatchEvent(keyDownEvent)
+            }
+            function mouseLeave(key_code){
+                var keyUpEvent = new KeyboardEvent("keyup",{
+                    keyCode:key_code
+                })
+                window.dispatchEvent(keyUpEvent)
+            }
+          </script>
+        <title>Zainul Abedin's artworks</title>
+        <style>
+            .controller{
+                position: fixed;
+                width: 70px;
+                height: 70px;
+                z-index: 3;
+                background: transparent;
+                color: black;
+                font-size: 42px;
+                font-weight: 900;
+                border:1px black inset;
+                border-radius: 25px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .controller:hover{
+                background: whitesmoke;
+            }
+            #forward{
+                left: calc(50vw - 35px);
+                top: 0;
+            }
+            #left{
+                left: 0;
+                top: calc(50vh - 35px);
+            }
+            #backward{
+                left:calc(50vw - 35px);
+                bottom: 0;
+            }
+            #right{
+                right: 0;
+                top: calc(50vh - 35px);
+            }
+        </style>
+        <meta name="description" content="A virtual museum of 
+        Zainul Abedin's artworks
+        ">
+        <meta name="keywords" content="Zainul Abedin, VR, VR museum, Shilpacharya, Bangladeshi art">
+    </head>
+    <body style="user-select: none; -webkit-app-region:drag;">
+        
+        <a-scene physics="debug: false">
+            <div class="controller" id="forward" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)">&uarr;</div>
+            <div class="controller" id="left" onmouseenter="mouseEnter(65)" onmouseleave="mouseLeave(65)">&larr;</div>
+            <div class="controller" id="backward" onmouseenter="mouseEnter(83)" onmouseleave="mouseLeave(83)">&darr;</div>
+            <div class="controller" id="right" onmouseenter="mouseEnter(68)" onmouseleave="mouseLeave(68)">&rarr;</div>
+            <!-- assets -->
+            <a-assets>
+                <img id="concrete_texture" src="textures/concrete_texture.jpg">
+                <img id="white_marbel" src="textures/white_marbel_tiles.jpg">
+
+                <img id="za" src="/za.jpg">
+                <img id="za_drawing" src="/AbedinZainulAmanulHuq.jpg">
+
+                <!-- famine_sketches -->
+                <img id="famine_1" src="arts/famine_sketches/ZA_01.jpg">
+                <img id="famine_2" src="arts/famine_sketches/ZA_02.jpg">
+                <img id="famine_3" src="arts/famine_sketches/ZA_03.jpg">
+                <img id="famine_4" src="arts/famine_sketches/ZA_04.jpg">
+                <img id="famine_5" src="arts/famine_sketches/ZA_05.jpg">
+                <img id="famine_6" src="arts/famine_sketches/ZA_06.jpg">
+                <img id="famine_7" src="arts/famine_sketches/ZA_07.jpg">
+                <img id="famine_8" src="arts/famine_sketches/ZA_08.jpg">
+                <img id="famine_9" src="arts/famine_sketches/ZA_09.jpg">
+                <img id="famine_10" src="arts/famine_sketches/ZA_10.jpg">
+
+                <!-- study of crow -->
+                <img id="crow1" src="arts/crow/1.jpg">
+                <img id="crow2" src="arts/crow/2.jpg">
+
+                <!-- single arts -->
+                <img id="monpura" src="arts/monpura.jpg">
+                <img id="rangamoti" src="arts/rangamoti-1955.jpg">
+                <img id="bidrohi" src="arts/bidrohi.jpg">
+                <img id="harvest" src="arts/harvest.jpg">
+                <img id="labour_couple" src="arts/labour_couple.jpg">
+                <img id="painyar_ma" src="arts/painyar-ma-1953.jpg">
+                <img id="santal_couples" src="arts/santal-couples-1968.jpg">
+                <img id="struggle" src="arts/struggle.jpg">
+                <img id="the-three-faces" src="arts/the-three-faces-1968.jpg">
+
+                <!-- untitled arts -->
+                <img id="untitled1" src="arts/untitled/1.jpg">
+                <img id="untitled2" src="arts/untitled/2.jpg">
+                <img id="untitled3" src="arts/untitled/3.jpg">
+                <img id="untitled4" src="arts/untitled/4.jpg">
+                <img id="untitled5" src="arts/untitled/5.jpg">
+                <img id="untitled6" src="arts/untitled/6.jpg">
+                <img id="untitled7" src="arts/untitled/7.jpg">
+                <img id="untitled8" src="arts/untitled/8.jpg">
+                <img id="untitled9" src="arts/untitled/9.jpg">
+                <img id="untitled10" src="arts/untitled/10.jpg">
+                <img id="untitled11" src="arts/untitled/11.jpg">
+                <img id="untitled12" src="arts/untitled/12.jpg">
+                <img id="untitled13" src="arts/untitled/13.jpg">
+
+                <!-- 3d plant -->
+                <a-asset-item id="plant-m" src="3d_models/plant.mtl"></a-asset-item>
+                <a-asset-item id="plant-o" src="3d_models/plant.obj"></a-asset-item>
+
+              </a-assets>
+
+
+              <!-- sky -->
+              <a-sky src="#sky_texture"></a-sky>
+              <!-- plane -->
+              <a-plane static-body rotation="-90 0 0" material="src:#white_marbel;repeat:500 500" scale="1000 1000 0" position="0 0 0"></a-plane>
+
+              <!-- walls -->
+              <a-box class="wall" static-body color="#87ceeb" depth="0.5" height="4" width="6" position="0 2 -2">
+                  <a-image src="#za" position="-2.24 1.243 0.306"></a-image>
+                  <a-text value="Zainul Abedin's VR Museum" position="-1.41 1.446 0.306"></a-text>
+                  <a-text color="black" scale="0.75 0.5 0" position="-1.4 -0.24 0.306" value="Zainul Abedin (29 December 1914 – 28 May 1976) was a Bangladeshi painter born in Kishoregonj, East Bengal, British India (now Bangladesh). He became well known in 1944 through his series of paintings depicting some of the great famines in Bengal during its British colonial period. After the Partition of Indian subcontinent he moved to East Pakistan (now Bangladesh). In 1948, he helped to establish the Institute of Arts and Crafts (now Faculty of Fine Arts) at University of Dhaka.The Indian Express has described him as a legendary Bangladeshi painter. Like many of his contemporaries, his paintings on the Bengal famine of 1943 are viewed as his most characteristic works. His homeland honored him with given the title “Shilpacharya” means 'Great teacher of the arts' for his artistic and visionary attributes. He was the pioneer of the modern art movement that took place in Bangladesh and was rightly considered by Syed Manzoorul Islam as the founding father of Bangladeshi modern arts, soon after Bangladesh earned the status of an independent republic.
+                  "></a-text>
+              </a-box>
+              <a-entity id="identier" position="4.7 1.017 -2">
+                <a-cylinder color="white" height="0.5" radius="0.01" position="0 2.7 0"></a-cylinder>
+                <a-cylinder position="1.2 2.7 0" color="white" height="0.5" radius="0.01"></a-cylinder>
+                <a-text side="double" value="
+                Famine Sketches
+                " position="-0.26 2.415 0" color="white"></a-text>
+              </a-entity>
+              <a-box class="wall" static-body color="#87ceeb" depth="0.5" height="4" width="6" position="10.3 2 -2">
+                  <a-text color="blue" rotation="0 180 0" position="0 0 -0.306" value="
+                  Famine Sketches
+                  "></a-text>
+                  <a-text id="sources" value="
+                  All arts are collected from Internet--
+                  
+                  1. Bengal Foundation
+                  2. Wikiart
+                  3. Wikipedia
+                  4. Banglapedia
+                  " position="-1.5 0 0.306" color="crimson"></a-text>
+              </a-box>
+              <a-box class="wall" static-body color="#87ceeb" depth="0.5" height="4" width="6" position="-10.3 2 -2">
+                  <a-image position="-1.76 0.784 0.306" src="#untitled1"></a-image>
+                  <a-image position="-0.44 0.784 0.306" src="#untitled2"></a-image>
+                  <a-image position="0.88 0.784 0.306" src="#untitled3"></a-image>
+                  <a-image position="2.194 0.784 0.306" src="#untitled4"></a-image>
+                  <a-image position="-1.76 -0.55 0.306" src="#untitled5"></a-image>
+                  <a-image position="-0.44 -0.55 0.306" src="#untitled7"></a-image>
+                  <a-image position="0.88 -0.55 0.306" src="#untitled8"></a-image>
+                  <a-image position="2.194 -0.55 0.306" src="#untitled9"></a-image>
+
+                  <a-image rotation="0 180 0" position="-1.76 0.55 -0.306" src="#untitled10"></a-image>
+                  <a-image rotation="0 180 0" position="-0.44 0.55 -0.306" src="#untitled11"></a-image>
+                  <a-image rotation="0 180 0" position="0.88 0.55 -0.306" src="#untitled12"></a-image>
+                  <a-image rotation="0 180 0" position="2.194 0.55 -0.306" src="#untitled13"></a-image>
+              </a-box>
+              <a-box class="wall" static-body color="#87ceeb" depth="10" height="4" width="0.5" position="-13 2 -7.25" position="0 180 0">
+                  <a-entity rotation="0 90 0" position="0.306 0.5 3.73">
+                    <a-image src="#rangamoti"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Rangamoti
+                    (1955)
+                    " align="center" color="green"></a-text>
+                  </a-entity>
+                  <a-entity rotation="0 90 0" position="0.306 0.5 1.73">
+                    <a-image src="#bidrohi"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Bidrohi
+                    (Struggle)
+                    " align="center" color="green"></a-text>
+                  </a-entity>
+                  <a-entity rotation="0 90 0" position="0.306 0.5 -1.73">
+                    <a-image src="#harvest"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Nobanno
+                    (Harvest)
+                    " align="center" color="green"></a-text>
+                  </a-entity>
+                  <a-entity rotation="0 90 0" position="0.306 0.5 -3.73">
+                    <a-image src="#labour_couple"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Labourer Couple
+                    " align="center" color="green"></a-text>
+                  </a-entity>
+              </a-box>
+              <a-box class="wall" static-body color="#87ceeb" depth="0.5" height="4" width="27" position="0 2 -12.3">
+                  <a-text value="
+                  Among all the contemporary works of Abedin, his famine sketches of the 1940s are his most remarkable works. His famine painting set which, exhibited in 1944, brought him even more critical acclaim. The miserable situation of the starving people during the Great Famine of Bengal in 1943 touched his heart. He made his own ink by burning charcoal and used it on cheap, ordinary packing paper. He depicted those starving people who were dying by the road-side. Abedin not only documented the famine, he also revealed the famine's sinister face through the skeletal figures of people fated to die of starvation.
+                  " position="4 0 0.306" color="black"></a-text>
+
+                  <a-text value="
+                  After completing his two years of training from Slade School of Fine Art in London, he began a new style, the 'Bengali style', where the main features were: folk forms with their geometric shapes, sometimes semi-abstract representation, and the use of primary colors. But he lacked the sense of perspective. Later he realized the limitations of folk art, so he went back to the nature, rural life and the daily struggles of man to make art that would be realistic but modern in appearance.
+                  " color="black" position="-9.4 -0.05 0.306"></a-text>
+              </a-box>
+
+              <a-box class="wall" static-body color="#87ceeb" depth="10" height="4" width="0.5" position="0.036 2 -7.25">
+                <!-- famine sketches -->
+                <a-image src="#famine_1" rotation="0 90 0" position="0.306 0 4"></a-image>
+                <a-image src="#famine_2" rotation="0 90 0" position="0.306 0 2"></a-image>
+                <a-image src="#famine_3" rotation="0 90 0" position="0.306 0 0"></a-image>
+                <a-image src="#famine_4" rotation="0 90 0" position="0.306 0 -2"></a-image>
+                <a-image src="#famine_5" rotation="0 90 0" position="0.306 0 -4"></a-image>
+
+                <!-- other arts -->
+                <a-entity rotation="0 -90 0" position="-0.306 0.5 3.73">
+                    <a-image src="#painyar_ma"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Painyar Ma
+                    (Mother of Painya)
+                    " align="center" color="green"></a-text>
+                </a-entity>
+                <a-entity rotation="0 -90 0" position="-0.306 0.5 1.73">
+                    <a-image src="#santal_couples"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Santal Couples
+                    (1968)
+                    " align="center" color="green"></a-text>
+                </a-entity>
+                <a-entity rotation="0 -90 0" position="-0.306 0.5 -1.73">
+                    <a-image src="#struggle"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    Songram
+                    (Struggle)
+                    " align="center" color="green"></a-text>
+                </a-entity>
+                <a-entity rotation="0 -90 0" position="-0.306 0.5 -3.73">
+                    <a-image src="#the-three-faces"></a-image>
+                    <a-text position="-0.01 -0.8 0" value="
+                    The Three Faces
+                    (1968)
+                    " align="center" color="green"></a-text>
+                </a-entity>
+
+              </a-box>
+
+              <a-box class="wall" static-body color="#87ceeb" depth="10" height="4" width="0.5" position="13 2 -7.25">
+                <a-image src="#famine_6" rotation="0 -90 0" position="-0.306 0 4"></a-image>
+                <a-image src="#famine_7" rotation="0 -90 0" position="-0.306 0 2"></a-image>
+                <a-image src="#famine_8" rotation="0 -90 0" position="-0.306 0 0"></a-image>
+                <a-image src="#famine_9" rotation="0 -90 0" position="-0.306 0 -2"></a-image>
+                <a-image src="#famine_10" rotation="0 -90 0" position="-0.306 0 -4"></a-image>
+              </a-box>
+
+              <a-box class="wall" static-body color="#87ceeb" depth="0.5" height="4" width="27" position="0 2 8">
+                <a-image src="#monpura" position="0 0 -0.306" rotation="0 180 0" width="8"></a-image>
+                <a-text value="
+                Monpura (70 feet long scroll image)
+                " rotation="0 180 0" position="-0.5 -0.8 -0.306" color="black"></a-text>
+                
+                <a-image src="#za_drawing" position="-9 0 -0.306" width="2" rotation="0 180 0"></a-image>
+                <a-text position="-8.5 -0.8 -0.306" rotation="0 180 0" color="yellow" value="
+                Captured by Amanul Huq
+                "></a-text>
+
+
+                <a-entity id="crow" position="10.97 0.319 -0.306" rotation="0 180 0">
+                    <a-image position="0 0 0" src="#crow1"></a-image>
+                    <a-image position="1.107 0 0" src="#crow2"></a-image>
+                    <a-text position="0 -0.69 0" color="black" value="
+                    Study of a crow
+                    "></a-text>
+                </a-entity>
+              </a-box>
+              <a-box class="wall" static-body color="#87ceeb" depth="12" height="4" width="0.5" position="13 2 3.5">
+                  <a-text value="
+                  Abedin was born in Kishoreganj on 29 December 1914. Much of his childhood was spent near the scenic banks of the Brahmaputra River. The Brahmaputra would later appear in many of his paintings and be a source of inspiration all throughout his career. Many of his works framed Brahmaputra and a series of watercolors that Abedin did as his tribute to the river earned him the Governor's gold medal in an all-India exhibition in 1938. This was the first time when he came under spotlight and this award gave Abedin the confidence to create his own visual style.
+                  " rotation="0 -90 0" position="-0.306 0.014 -2.642"></a-text>
+              </a-box>
+              <a-box class="wall" static-body color="#87ceeb" depth="12" height="4" width="0.5" position="-13 2 3.5">
+                  <a-text rotation="0 90 0" position="0.306 0.121 2.384" scale="1.2 0.7 1" value="
+                  In 1933, Abedin was admitted to the Government School of Art in Calcutta (now Government College of Art & Craft, Kolkata, India). Here for five years he learned British/ European academic style and later he joined the faculty of the same school after his graduation. He was the first Muslim student to obtain first class distinction from the school. He was dissatisfied with the oriental style and the limitations of European academic style and this led him towards realism. In 1948, with help from a few colleagues, he founded an art institute in Dhaka. Back then, there were no art institutes in the city. Soon after, it went on to be considered the best art institute in Pakistan during its early years. He worked in the Pakistani government for a while. He taught at the institute and among his students was Pakistani artist Mansur Rahi. He also taught Bangladeshi artists such as Monirul Islam and Mohammad Kibria.
+                  "></a-text>
+              </a-box>
+
+              <!-- roof -->
+              <a-box id="roof" depth="24" height="0.5" width="26" position="0 4.25 -1.5" color="gray" src="#concrete_texture"></a-box>
+
+              <!-- 3d plant -->
+              <a-entity obj-model="obj: #plant-o; mtl: #plant-m" position="-12.5 -0.01 -7.5" scale="0.25 0.25 0.25"></a-entity>
+              <a-entity obj-model="obj: #plant-o; mtl: #plant-m" position="-1 -0.01 -7.5" scale="0.25 0.25 0.25"></a-entity>
+
+              <a-entity look-controls kinematic-body="radius: 0.8" wasd-controls position="0 0 4" id="cameraWrapper">
+                <a-entity camera position="0 1.6 0" ></a-entity>
+              </a-entity>
+              <a-entity light="type: ambient; color: #CCC"></a-entity>
+        </a-scene>
+    </body>
+</html>
