@@ -16,11 +16,23 @@
                 })
                 window.dispatchEvent(keyUpEvent)
             }
+            function walk(){
+                var keyDownEvent = new KeyboardEvent("keydown",{
+                    keyCode:87
+                })
+                window.dispatchEvent(keyDownEvent)
+                setTimeout(()=>{
+                    var keyUpEvent = new KeyboardEvent("keyup",{
+                    keyCode:87
+                    })
+                    window.dispatchEvent(keyUpEvent)
+                },250)
+            }
           </script>
         <title>Zainul Abedin's artworks</title>
         <style>
             #preloader{
-                z-index: 100;
+                z-index: 4;
                 background: #000 url(preloader.gif) no-repeat center center;
                 width: 100vw;
                 height: 100vh;
@@ -30,33 +42,29 @@
                 width: 70px;
                 height: 70px;
                 z-index: 3;
-                background: transparent;
-                color: black;
-                font-size: 42px;
+                background: #1F4864;
+                color: whitesmoke;
+                font-size: 19px;
                 font-weight: 900;
-                border:1px black inset;
-                border-radius: 25px;
+                border:1px red inset;
+                border-radius: 50%;
                 text-align: center;
                 vertical-align: middle;
             }
             .controller:hover{
-                background: whitesmoke;
+                background: black;
             }
-            #forward{
-                left: calc(50vw - 35px);
-                top: 0;
-            }
-            #left{
-                left: 0;
+            #walker{
+                left: 10px;
                 top: calc(50vh - 35px);
             }
-            #backward{
-                left:calc(50vw - 35px);
-                bottom: 0;
+            #run{
+                right: 10px;
+                top: calc(50vh - 75px);
             }
-            #right{
-                right: 0;
-                top: calc(50vh - 35px);
+            #stand{
+                right: 10px;
+                top: calc(50vh + 35px);
             }
         </style>
         <meta name="description" content="A virtual museum of 
@@ -67,10 +75,9 @@
     <body style="user-select: none; -webkit-app-region:drag;">
         <a-scene physics="debug: false">
             <div id="preloader"></div>
-            <div class="controller" id="forward" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)">&uarr;</div>
-            <div class="controller" id="left" onmouseenter="mouseEnter(65)" onmouseleave="mouseLeave(65)">&larr;</div>
-            <div class="controller" id="backward" onmouseenter="mouseEnter(83)" onmouseleave="mouseLeave(83)">&darr;</div>
-            <div class="controller" id="right" onmouseenter="mouseEnter(68)" onmouseleave="mouseLeave(68)">&rarr;</div>
+            <div class="controller" id="walker" onclick="walk()"><p>walk</p></div>
+            <div class="controller" id="run" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)"><p>run</p></div>
+            <div class="controller" id="stand"><p>stand</p></div>
             <!-- assets -->
             <a-assets>
                 <img id="concrete_texture" src="textures/concrete_texture.jpg">
@@ -126,6 +133,7 @@
                 <a-asset-item id="plant-o" src="3d_models/plant.obj"></a-asset-item>
 
               </a-assets>
+              
 
 
               <!-- sky -->
@@ -300,6 +308,7 @@
               <a-entity obj-model="obj: #plant-o; mtl: #plant-m" position="-12.5 -0.01 -7.5" scale="0.25 0.25 0.25"></a-entity>
               <a-entity obj-model="obj: #plant-o; mtl: #plant-m" position="-1 -0.01 -7.5" scale="0.25 0.25 0.25"></a-entity>
 
+              
               <a-entity look-controls kinematic-body="radius: 0.8" wasd-controls position="0 0 4" id="cameraWrapper">
                 <a-entity camera position="0 1.6 0" ></a-entity>
               </a-entity>
