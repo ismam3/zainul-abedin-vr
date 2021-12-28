@@ -1,9 +1,16 @@
 <html>
     <head>
-        <script src="a-frame_0_8_2.min.js"></script>
-        <script src="aframe-extras.min.js"></script>
-        <script src="aframe-physics-system.min.js"></script>
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
         <script>
+            function loader(){
+                document.getElementById("preloader").style.display="none";
+                var controller = document.getElementsByClassName("controller");
+                for(var i= 0;i<controller.length;i++){
+                    controller[i].style.display="inline"
+                }
+            }
             function mouseEnter(key_code){
                 var keyDownEvent = new KeyboardEvent("keydown",{
                     keyCode:key_code
@@ -32,7 +39,7 @@
         <title>Zainul Abedin's artworks</title>
         <style>
             #preloader{
-                z-index: 4;
+                z-index: 10;
                 background: #000 url(preloader.gif) no-repeat center center;
                 width: 100vw;
                 height: 100vh;
@@ -50,6 +57,7 @@
                 border-radius: 50%;
                 text-align: center;
                 vertical-align: middle;
+                display: none;
             }
             .controller:hover{
                 background: black;
@@ -72,9 +80,9 @@
         ">
         <meta name="keywords" content="Zainul Abedin, VR, VR museum, Shilpacharya, Bangladeshi art">
     </head>
-    <body style="user-select: none; -webkit-app-region:drag;">
-        <a-scene physics="debug: false">
-            <div id="preloader"></div>
+    <body style="user-select: none; -webkit-app-region:drag;" onload="loader()">
+        <div id="preloader"></div>
+        <a-scene physics="debug: false" loading-screen="dotsColor: blue; backgroundColor:skyblue" vr-mode-ui="enabled:false">
             <div class="controller" id="walker" onclick="walk()"><p>walk</p></div>
             <div class="controller" id="run" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)"><p>run</p></div>
             <div class="controller" id="stand"><p>stand</p></div>
