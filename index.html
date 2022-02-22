@@ -82,7 +82,7 @@
     </head>
     <body style="user-select: none; -webkit-app-region:drag;" onload="loader()">
         <div id="preloader"></div>
-        <a-scene physics="debug: false" loading-screen="dotsColor: blue; backgroundColor:skyblue" vr-mode-ui="enabled:false">
+        <a-scene physics="debug: false" loading-screen="dotsColor: blue; backgroundColor:skyblue" vr-mode-ui="enabled:true">
             <div class="controller" id="walker" onclick="walk()"><p>walk</p></div>
             <div class="controller" id="run" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)"><p>run</p></div>
             <div class="controller" id="stand"><p>stand</p></div>
@@ -317,7 +317,7 @@
               <a-entity obj-model="obj: #plant-o; mtl: #plant-m" position="-1 -0.01 -7.5" scale="0.25 0.25 0.25"></a-entity>
 
               
-              <a-entity look-controls kinematic-body="radius: 0.8" wasd-controls position="0 0 4" id="cameraWrapper">
+              <a-entity look-controls kinematic-body="radius: 0.8" movement-controls position="0 0 4" id="cameraWrapper">
                 <a-entity camera position="0 1.6 0" ></a-entity>
               </a-entity>
               <a-entity light="type: ambient; color: #CCC"></a-entity>
